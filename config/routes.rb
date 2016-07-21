@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   get "help" => "static_pages#help"
+
   namespace :admin do
     root "static_pages#home"
     resources :users, except: :show
@@ -19,4 +20,8 @@ Rails.application.routes.draw do
       resource :add_user_courses, only: [:edit, :update]
     end
   end
+
+  resources :users, only: :show
+  resources :courses, only: :show
+  resources :user_courses, only: :index
 end

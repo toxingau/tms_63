@@ -1,8 +1,8 @@
-<% provide :title, t("devise.registrations.edituser") %>
-<h1><%= t "devise.registrations.edituser" %></h1>
+<% provide :title, t("devise.edituser") %>
+<h1><%= t "devise.edituser" %></h1>
 
-<%= form_forresource, as: resource_name, 
-  url: registration_path resource_name, html: {method: :put} do |f| %>
+<%= form_for resource, as: resource_name, url: registration_path(resource_name),
+  html:{method: :put} do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -16,12 +16,19 @@
   </div>
 
   <div class="field">
+    <%= f.label :current_password %> 
+    <i><%= t "devise.need_current_pass" %></i>
+    <%= f.password_field :current_password, autocomplete: "off", 
+      class: "form-control" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %> 
-    <i><%= t "devise.registrations.leave_blank" %></i>
+    <i><%= t "devise.leave_blank" %></i>
     <%= f.password_field :password, autocomplete: "off",
       class: "form-control" %>
     <% if @minimum_password_length %>
-      <em><%= t "devise.registrations.minimum_password_length", 
+      <em><%= t "devise.minimum_password_length", 
         minpasslength: @minimum_password_length %></em>
     <% end %>
   </div>
@@ -32,23 +39,9 @@
       class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> 
-    <i><%= t "devise.registrations.need_current_pass" %></i>
-    <%= f.password_field :current_password, autocomplete: "off", 
-      class: "form-control" %>
-  </div>
-
   <div class="actions">
     <%= f.submit t("update_profile"), class: "btn-primary" %>
   </div>
 <% end %>
-
-<h3><% t "devise.registrations.cancel_acc" %></h3>
-
-<p><%= t "devise.registrations.unhappy" %></p>
-<%= link_to t("devise.registrations.cancel_acc"), 
-  registration_path(resource_name), 
-  data: {confirm: t("devise.registrations.areyousure")}, method: :delete %>
 
 <%= link_to t("back"), :back %>

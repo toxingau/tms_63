@@ -1,0 +1,14 @@
+<%= provide :title, @course.name %>
+<div>
+  <ul class="list-inline">
+    <h3><%= @course.name %></h3>
+    <p><%= @course.description %></p>
+    <br/>
+    <h3><%= t "courses.subjects" %></h3>
+    <% @course.subjects.each do |subject| %>
+      <li>
+        <%= link_to subject.name, "#", class: "btn btn-lg btn-default" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -13,6 +13,7 @@ en:
       update_user: Update User
       edit: Save change
       supervisor: Supervisor
+      show: Show user
     start: Start
     started: Started
     finish: Finish
@@ -24,6 +25,14 @@ en:
     success: Success
     update_success: Update Success
     update_fail: Update Fail
+    course: "Courses List"
+    create_course: Create Course
+    new_course: New Course
+    empty_course: This course does not exist
+    courses_index: Courses
+    courses_description: Description
+    success: Success
+    update_success: Update Success
     delete_success: Delete Success
     delete_fail: Delete Fail
     edit: Edit course
@@ -92,8 +101,17 @@ en:
   tasks:
     name: Name
     no_task: The subject not have task
+  user_courses:
+    all_courses: All Courses
+    user: User
+    in_course: in course
   courses:
+    index: Course index
     add_supervisor: Add supervisor
     title: Courses
     status: Status
     action: Action
+  navbar:
+    profile: Profile
+    setting: Setting
+    course: Course

@@ -1,0 +1,13 @@
+<%= provide :title, t("user_courses.all_courses") %>
+<div>
+  <h3><%= t "user_courses.all_courses" %></h3>
+  <br>
+  <ul class="list-inline">
+    <% @user_courses.each do |user_course| %>
+      <li>
+        <%= link_to user_course.course.name, user_course.course,
+          class: "btn btn-lg btn-default" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

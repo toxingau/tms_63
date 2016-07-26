@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  def load_activity user, action_type, target_name
+    Activity.create user: user, action_type: action_type,
+      target_name: target_name
+  end
+
   private
   def current_ability
     namespace = controller_path.split("/").first

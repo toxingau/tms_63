@@ -149,3 +149,8 @@ en:
   users:
     profile: Profile
     setting: Setting
+  activities: 
+    activities: Activities
+    finish_course: has finished
+    start_course: has started
+    ago: ago

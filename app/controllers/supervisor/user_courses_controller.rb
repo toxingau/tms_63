@@ -4,6 +4,7 @@ class Supervisor::UserCoursesController < ApplicationController
   def destroy
     course = @user_course.course
     if @user_course.destroy
+      load_activity current_user, "remove_user", @user_course.user.name
       flash[:success] =  t "flash.removed_user"
     else
       flash.now[:danger] = t "flash.remove_user_failed"

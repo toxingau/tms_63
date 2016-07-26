@@ -23,6 +23,19 @@
     <%= link_to t("courses.add_trainee"),
       edit_supervisor_course_add_user_courses_path(@course) if @course.init? %>
   </ul>
+
+  <div>
+    <h4><%= t "activities.activities" %></h4>
+    <% current_user.activities.each do |activity| %>
+      <div>
+        <span><%= activity.to_string %></span>
+        <span class="timestamp">
+          <%= time_ago_in_words(activity.created_at) %>
+          <%= t "activities.ago" %>.
+        </span>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="col-md-6 center course-content">

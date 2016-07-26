@@ -11,13 +11,17 @@ class Supervisor::CoursesController < ApplicationController
 
   def update
     if @course.update_attributes course_params
+      if params[:course][:status] == "start"
+        load_activity current_user, "start_course", @course.name
+      else
+        load_activity current_user, "finish_course", @course.name
+      end
       flash[:success] = t "supervisor.update_success"
       redirect_to supervisor_course_path @course
     else
       flash[:danger] = t "supervisor.update_fail"
       redirect_to supervisor_course_path
     end
-
   end
 
   private

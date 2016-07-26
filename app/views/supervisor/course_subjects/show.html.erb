@@ -40,3 +40,12 @@
     <% end %>
   </ol>
 </div>
+
+<div class = "col-xs-6 col-md-6">
+  <h3><%= t "subject.activities" %></h3>
+  <% current_user.activities.each do |activity| %>
+    <div>
+      <span><%= activity.to_string %></span>
+    </div>
+  <% end %>
+</div>

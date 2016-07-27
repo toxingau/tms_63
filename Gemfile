@@ -7,9 +7,7 @@ gem "cancancan"
 gem "bcrypt", "3.1.7"
 gem "config", "1.2.1"
 gem "faker", "1.4.2"
-gem "will_paginate", "3.0.7"
-gem "bootstrap-will_paginate", "0.0.10"
-gem "sass-rails", "5.0.2"
+gem "sass-rails", "5.0.6"
 gem "uglifier", "2.5.3"
 gem "coffee-rails", "4.1.0"
 gem "jquery-rails", "4.0.3"
@@ -24,6 +22,7 @@ gem "launchy"
 gem "whenever", require: false
 gem "daemons"
 gem "kaminari"
+gem "ransack"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"

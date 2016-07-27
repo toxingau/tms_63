@@ -149,3 +149,13 @@ en:
   users:
     profile: Profile
     setting: Setting
+  search:
+    search: search
+    search_user:
+      name: Input name
+      label_name: Name contains
+    search_subject:
+      name: Input name
+    name: Name
+    description: Description
+    email: email

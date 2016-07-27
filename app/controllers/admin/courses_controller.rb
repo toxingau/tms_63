@@ -4,7 +4,8 @@ class Admin::CoursesController < ApplicationController
   before_action :load_subjects, only: [:edit, :new]
 
   def index
-    @courses = @courses.page params[:page]
+    @search = @courses.ransack params[:q]
+    @courses = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def show

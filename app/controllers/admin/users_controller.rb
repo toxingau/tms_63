@@ -3,7 +3,8 @@ class Admin::UsersController < ApplicationController
   before_action :get_role, only: [:new, :edit]
 
   def index
-    @users = @users.page params[:page]
+    @search = @users.ransack params[:q]
+    @users = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def new

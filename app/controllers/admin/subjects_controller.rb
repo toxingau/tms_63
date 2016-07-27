@@ -2,6 +2,8 @@ class Admin::SubjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @search = @subjects.ransack params[:q]
+    @subjects = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def new

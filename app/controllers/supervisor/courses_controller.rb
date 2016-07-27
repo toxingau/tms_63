@@ -2,7 +2,8 @@ class Supervisor::CoursesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @courses = current_user.courses.page params[:page]
+    @search = current_user.courses.ransack params[:q]
+    @courses = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def show
@@ -17,7 +18,6 @@ class Supervisor::CoursesController < ApplicationController
       flash[:danger] = t "supervisor.update_fail"
       redirect_to supervisor_course_path
     end
-
   end
 
   private

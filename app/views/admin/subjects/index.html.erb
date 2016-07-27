@@ -2,12 +2,24 @@
   <h1><%= t "subjects.title" %></h1>
   <h2><%= link_to t("subjects.new"), new_admin_subject_path,
     class: "btn btn-success" %></h2>
+  <div>
+    <%= search_form_for [:admin, @search], 
+      class: "form-inline" do |f| %>
+      <%= f.label :name_cont, t("search.search_user.label_name") %>
+      <%= f.text_field :name_cont, placeholder: t("search.search_subject.name"),
+        class: "form-control search_select" %>
+      <%= f.submit t("search.search"), 
+        class: "btn btn-info margin_left_btn_submit" %>
+    <% end %>
+  </div>
   <div class="col-md-8 col-md-offset-2 center">
     <table class="table table-hover table-striped">
       <thead>
         <tr>
-          <th class="center"><%= t "subject.name" %></th>
-          <th class="center"><%= t "subject.description" %></th>
+          <th class="center"><%= sort_link @search, :name,
+            t("search.name") %></th>
+          <th class="center"><%= sort_link @search, :description,
+            t("search.description") %></th>
           <th class="center"><%= t "subject.action" %></th>
         </tr>
       </thead>

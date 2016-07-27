@@ -2,7 +2,8 @@ class CoursesController < ApplicationController
   load_and_authorize_resource only: :show
 
   def index
-    @courses = current_user.courses.page params[:page]
+    @search = current_user.courses.ransack params[:q]
+    @courses = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def show
